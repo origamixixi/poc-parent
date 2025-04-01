@@ -11,6 +11,7 @@
     <modules>
         <module>poc-distributed-sql</module>
         <module>poc-local-join</module>
+        <module>poc_admin</module>
     </modules>
 
     <properties>

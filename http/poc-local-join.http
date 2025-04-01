@@ -37,3 +37,14 @@ GET http://localhost:8086/api/database-instance-involved/three?hkidPrefix=A%25
 
 ### Get four database instance involved
 GET http://localhost:8086/api/database-instance-involved/four?hkidPrefix=A%25
+
+### ImpactOfAggregatedDataService methods
+### Get appointment100000 and patient10000
+GET http://localhost:8086/api/aggregated-data/appointment50000000500-and-patient10000000500?hkidPrefix=A%25
+
+### Get appointment5000000 and patient2000000
+GET http://localhost:8086/api/aggregated-data/appointment500000003000-and-patient100000003000?hkidPrefix=A%25
+
+### Get appointment50000000 and patient10000000
+GET http://localhost:8086/api/aggregated-data/appointment5000000010000-and-patient1000000010000?hkidPrefix=A%25
+

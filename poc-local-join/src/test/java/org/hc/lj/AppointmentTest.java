@@ -2,14 +2,8 @@ package org.hc.lj;
 
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
-import org.hc.lj.entity.Appointment;
-import org.hc.lj.entity.Appointment100000;
-import org.hc.lj.entity.Appointment5000000;
-import org.hc.lj.entity.Appointment50000000;
-import org.hc.lj.repository.Appointment100000Repository;
-import org.hc.lj.repository.Appointment50000000Repository;
-import org.hc.lj.repository.Appointment5000000Repository;
-import org.hc.lj.repository.AppointmentTestRepository;
+import org.hc.lj.entity.*;
+import org.hc.lj.repository.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +31,13 @@ public class AppointmentTest {
     private Appointment100000Repository appointment100000Repository;
 
     @Autowired
-    private Appointment5000000Repository appointment5000000Repository;
+    private Appointment5000000500Repository appointment5000000500Repository;
+
+    @Autowired
+    private Appointment50000003000Repository appointment50000003000Repository;
+
+    @Autowired
+    private Appointment500000010000Repository appointment500000010000Repository;
 
     @Autowired
     private Appointment50000000Repository appointment50000000Repository;
@@ -54,8 +54,16 @@ public class AppointmentTest {
     }
 
     @Test
-    public void insertAppointment5000000() {
-        insertAppointments(3_000, 5_000_000, Appointment5000000.class, appointment5000000Repository::saveAll);
+    public void insertAppointment50000003000() {
+        insertAppointments(3_000, 5_000_000, Appointment50000003000.class, appointment50000003000Repository::saveAll);
+    }
+    @Test
+    public void insertAppointment5000000500() {
+        insertAppointments(500, 5_000_000, Appointment5000000500.class, appointment5000000500Repository::saveAll);
+    }
+    @Test
+    public void insertAppointment500000010000() {
+        insertAppointments(10_000, 5_000_000, Appointment500000010000.class, appointment500000010000Repository::saveAll);
     }
 
     @Test

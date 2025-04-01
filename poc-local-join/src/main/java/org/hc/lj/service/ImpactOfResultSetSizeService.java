@@ -1,7 +1,7 @@
 package org.hc.lj.service;
 
-import org.hc.lj.entity.Appointment5000000;
-import org.hc.lj.repository.Appointment5000000Repository;
+import org.hc.lj.entity.Appointment50000003000;
+import org.hc.lj.repository.Appointment50000003000Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -13,20 +13,20 @@ import java.util.List;
 public class ImpactOfResultSetSizeService {
 
     @Autowired
-    private Appointment5000000Repository appointment5000000Repository;
+    private Appointment50000003000Repository appointment50000003000Repository;
 
-    public List<Appointment5000000> query50(String hkidPrefix) {
+    public List<Appointment50000003000> query50(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 50);
-        return appointment5000000Repository.resultSetSizeQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.resultSetSizeQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment5000000> query1000(String hkidPrefix) {
+    public List<Appointment50000003000> query1000(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment5000000Repository.resultSetSizeQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.resultSetSizeQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment5000000> query10000(String hkidPrefix) {
+    public List<Appointment50000003000> query10000(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 10000);
-        return appointment5000000Repository.resultSetSizeQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.resultSetSizeQuery(hkidPrefix, pageable);
     }
 }

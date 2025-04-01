@@ -1,11 +1,11 @@
 package org.hc.lj.service;
 
 import org.hc.lj.entity.Appointment100000;
-import org.hc.lj.entity.Appointment5000000;
+import org.hc.lj.entity.Appointment50000003000;
 import org.hc.lj.entity.Appointment50000000;
 import org.hc.lj.repository.Appointment100000Repository;
 import org.hc.lj.repository.Appointment50000000Repository;
-import org.hc.lj.repository.Appointment5000000Repository;
+import org.hc.lj.repository.Appointment50000003000Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -20,7 +20,7 @@ public class ImpactOfDataVolumeService {
     private Appointment100000Repository appointment100000Repository;
 
     @Autowired
-    private Appointment5000000Repository appointment5000000Repository;
+    private Appointment50000003000Repository appointment50000003000Repository;
 
     @Autowired
     private Appointment50000000Repository appointment50000000Repository;
@@ -30,9 +30,9 @@ public class ImpactOfDataVolumeService {
         return appointment100000Repository.dataVolumeQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment5000000> queryAppointment5000000AndPatientPatient2000000(String hkidPrefix) {
+    public List<Appointment50000003000> queryAppointment5000000AndPatientPatient2000000(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment5000000Repository.dataVolumeQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.dataVolumeQuery(hkidPrefix, pageable);
     }
 
     public List<Appointment50000000> queryAppointment50000000AndPatient10000000(String hkidPrefix) {

@@ -2,14 +2,8 @@ package org.hc.lj;
 
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
-import org.hc.lj.entity.Patient;
-import org.hc.lj.entity.Patient10000;
-import org.hc.lj.entity.Patient10000000;
-import org.hc.lj.entity.Patient2000000;
-import org.hc.lj.repository.Patient10000000Repository;
-import org.hc.lj.repository.Patient10000Repository;
-import org.hc.lj.repository.Patient2000000Repository;
-import org.hc.lj.repository.PatientTestRepository;
+import org.hc.lj.entity.*;
+import org.hc.lj.repository.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,10 +31,17 @@ public class PatientTest {
     private Patient10000Repository patient10000Repository;
 
     @Autowired
-    private Patient2000000Repository patient2000000Repository;
+    private Patient2000000500Repository patient2000000500Repository;
+
+    @Autowired
+    private Patient20000003000Repository patient20000003000Repository;
+
+    @Autowired
+    private Patient200000010000Repository patient200000010000Repository;
 
     @Autowired
     private Patient10000000Repository patient10000000Repository;
+
 
     @Test
     public void findAll() {
@@ -60,8 +61,16 @@ public class PatientTest {
      * Insert 2,000,000 patient records into the database.
      */
     @Test
-    public void insertPatient2000000() {
-        insertPatients(3_000, 2_000_000, Patient2000000.class, patient2000000Repository::saveAll);
+    public void insertPatient20000003000() {
+        insertPatients(3_000, 2_000_000, Patient20000003000.class, patient20000003000Repository::saveAll);
+    }
+    @Test
+    public void insertPatient2000000500() {
+        insertPatients(500, 2_000_000, Patient2000000500.class, patient2000000500Repository::saveAll);
+    }
+    @Test
+    public void insertPatient200000010000() {
+        insertPatients(10_000, 2_000_000, Patient200000010000.class, patient200000010000Repository::saveAll);
     }
 
     /**
