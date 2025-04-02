@@ -61,19 +61,19 @@ public class CompositeController {
     //---------------------------------------------------------------------
     // ImpactOfDifferentPaginationService methods
     //---------------------------------------------------------------------
-    @GetMapping("/result-set-size/50")
-    public List<Appointment50000003000> getResultSetSize50(@RequestParam String hkidPrefix) {
-        return differentPaginationService.query50(hkidPrefix);
+    @GetMapping("/pagination/50")
+    public List<Appointment50000003000> getPagination50(@RequestParam String hkidPrefix) {
+        return differentPaginationService.queryPagination50(hkidPrefix);
     }
 
-    @GetMapping("/result-set-size/1000")
-    public List<Appointment50000003000> getResultSetSize1000(@RequestParam String hkidPrefix) {
-        return differentPaginationService.query1000(hkidPrefix);
+    @GetMapping("/pagination/1000")
+    public List<Appointment50000003000> getPagination1000(@RequestParam String hkidPrefix) {
+        return differentPaginationService.queryPagination1000(hkidPrefix);
     }
 
-    @GetMapping("/result-set-size/10000")
-    public List<Appointment50000003000> getResultSetSize10000(@RequestParam String hkidPrefix) {
-        return differentPaginationService.query10000(hkidPrefix);
+    @GetMapping("/pagination/10000")
+    public List<Appointment50000003000> getPagination10000(@RequestParam String hkidPrefix) {
+        return differentPaginationService.queryPagination10000(hkidPrefix);
     }
 
     //---------------------------------------------------------------------
@@ -97,19 +97,19 @@ public class CompositeController {
     //---------------------------------------------------------------------
     // ImpactOfMultiDbInstancesService methods
     //---------------------------------------------------------------------
-    @GetMapping("/database-instance-involved/two")
-    public List<Appointment50000003000> getTwoDatabaseInstanceInvolved(@RequestParam String hkidPrefix) {
-        return multiDbInstancesService.queryTwoDatabaseInstanceInvolved(hkidPrefix);
+    @GetMapping("/database-instance/two")
+    public List<Appointment50000003000> getTwoDatabaseInstance(@RequestParam String hkidPrefix) {
+        return multiDbInstancesService.queryTwoDatabaseInstance(hkidPrefix);
     }
 
-    @GetMapping("/database-instance-involved/three")
-    public List<Appointment50000003000> getThreeDatabaseInstanceInvolved(@RequestParam String hkidPrefix) {
-        return multiDbInstancesService.queryThreeDatabaseInstanceInvolved(hkidPrefix);
+    @GetMapping("/database-instance/three")
+    public List<Appointment50000003000> getThreeDatabaseInstance(@RequestParam String hkidPrefix) {
+        return multiDbInstancesService.queryThreeDatabaseInstance(hkidPrefix);
     }
 
-    @GetMapping("/database-instance-involved/four")
-    public List<Appointment50000003000> getFourDatabaseInstanceInvolved(@RequestParam String hkidPrefix) {
-        return multiDbInstancesService.queryFourDatabaseInstanceInvolved(hkidPrefix);
+    @GetMapping("/database-instance/four")
+    public List<Appointment50000003000> getFourDatabaseInstance(@RequestParam String hkidPrefix) {
+        return multiDbInstancesService.queryFourDatabaseInstance(hkidPrefix);
     }
 
 }

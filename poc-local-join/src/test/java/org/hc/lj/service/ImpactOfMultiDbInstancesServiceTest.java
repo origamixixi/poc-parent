@@ -17,16 +17,16 @@ public class ImpactOfMultiDbInstancesServiceTest {
 
     @Test
     public void queryTwoDatabaseInstanceInvolved() {
-        impactOfMultiDbInstancesService.queryTwoDatabaseInstanceInvolved("A%");
+        impactOfMultiDbInstancesService.queryTwoDatabaseInstance("A%");
     }
 
     @Test
     public void queryThreeDatabaseInstanceInvolved() {
-        impactOfMultiDbInstancesService.queryThreeDatabaseInstanceInvolved("A%");
+        impactOfMultiDbInstancesService.queryThreeDatabaseInstance("A%");
     }
 
     @Test
     public void queryFourDatabaseInstanceInvolved() {
-        impactOfMultiDbInstancesService.queryFourDatabaseInstanceInvolved("A%");
+        impactOfMultiDbInstancesService.queryFourDatabaseInstance("A%");
     }
 }

@@ -17,10 +17,7 @@ public class ImpactOfDifferentDataSizeServiceTest {
 
     @Test
     public void testQueryAppointment100000AndPatient10000() {
-        long start = System.currentTimeMillis();
         impactOfDifferentDataSizeService.queryAppointment100000AndPatient10000("A%");
-        long end = System.currentTimeMillis();
-        log.info("{}", end - start);
     }
 
     @Test

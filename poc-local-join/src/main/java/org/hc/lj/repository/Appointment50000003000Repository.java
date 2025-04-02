@@ -32,7 +32,7 @@ public interface Appointment50000003000Repository extends JpaRepository<Appointm
             join Patient20000003000 p on CAST(a.patientNo AS string) = p.patientKey
             WHERE p.hkid LIKE :hkidPrefix
             """)
-    List<Appointment50000003000> twoDatabaseInstanceInvolvedQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
+    List<Appointment50000003000> twoDatabaseInstanceQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
 
     @Query("""
             select a from Appointment50000003000 a
@@ -40,7 +40,7 @@ public interface Appointment50000003000Repository extends JpaRepository<Appointm
             join Cases2000000 c on a.patientNo = c.patientNo
             WHERE p.hkid LIKE :hkidPrefix
             """)
-    List<Appointment50000003000> threeDatabaseInstanceInvolvedQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
+    List<Appointment50000003000> threeDatabaseInstanceQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
 
     @Query("""
             select a from Appointment50000003000 a
@@ -49,7 +49,7 @@ public interface Appointment50000003000Repository extends JpaRepository<Appointm
             join CasePatientCondition2000000 cpc on a.patientNo = cpc.patientNo
             WHERE p.hkid LIKE :hkidPrefix
             """)
-    List<Appointment50000003000> fourDatabaseInstanceInvolvedQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
+    List<Appointment50000003000> fourDatabaseInstanceQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
 
     @Query("SELECT a FROM Appointment50000003000 a JOIN Patient20000003000 p on CAST(a.patientNo AS string) = p.patientKey WHERE p.hkid LIKE :hkidPrefix")
     List<Appointment50000003000> resultSetQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);

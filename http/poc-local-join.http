@@ -20,13 +20,13 @@ GET http://localhost:8086/api/result-set/appointment5000000010000-and-patient100
 
 ### ImpactOfResultSetSizeService methods
 ### Get result set size 50
-GET http://localhost:8086/api/result-set-size/50?hkidPrefix=A%25
+GET http://localhost:8086/api/pagination/50?hkidPrefix=A%25
 
 ### Get result set size 1000
-GET http://localhost:8086/api/result-set-size/1000?hkidPrefix=A%25
+GET http://localhost:8086/api/pagination/1000?hkidPrefix=A%25
 
 ### Get result set size 10000
-GET http://localhost:8086/api/result-set-size/10000?hkidPrefix=A%25
+GET http://localhost:8086/api/pagination/10000?hkidPrefix=A%25
 
 ### ImpactOfDifferentJoinAndSubqueryService methods
 ### Get type of join
@@ -40,10 +40,10 @@ GET http://localhost:8086/api/type-of-subquery?hkidPrefix=A%25
 
 ### ImpactOfMultiDbInstancesService methods
 ### Get two database instance involved
-GET http://localhost:8086/api/database-instance-involved/two?hkidPrefix=A%25
+GET http://localhost:8086/api/database-instance/two?hkidPrefix=A%25
 
 ### Get three database instance involved
-GET http://localhost:8086/api/database-instance-involved/three?hkidPrefix=A%25
+GET http://localhost:8086/api/database-instance/three?hkidPrefix=A%25
 
 ### Get four database instance involved
-GET http://localhost:8086/api/database-instance-involved/four?hkidPrefix=A%25
+GET http://localhost:8086/api/database-instance/four?hkidPrefix=A%25

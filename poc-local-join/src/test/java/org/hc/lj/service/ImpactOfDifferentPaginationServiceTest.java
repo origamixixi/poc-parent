@@ -17,16 +17,16 @@ public class ImpactOfDifferentPaginationServiceTest {
 
     @Test
     public void testQuery50() {
-        impactOfDifferentPaginationService.query50("A%");
+        impactOfDifferentPaginationService.queryPagination50("A%");
     }
 
     @Test
     public void testQuery1000() {
-        impactOfDifferentPaginationService.query1000("A%");
+        impactOfDifferentPaginationService.queryPagination1000("A%");
     }
 
     @Test
     public void testQuery10000() {
-        impactOfDifferentPaginationService.query10000("A%");
+                impactOfDifferentPaginationService.queryPagination10000("A%");
     }
 }

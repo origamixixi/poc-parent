@@ -15,19 +15,19 @@ public class ImpactOfMultiDbInstancesService {
     @Autowired
     private Appointment50000003000Repository appointment50000003000Repository;
 
-    public List<Appointment50000003000> queryTwoDatabaseInstanceInvolved(String hkidPrefix) {
+    public List<Appointment50000003000> queryTwoDatabaseInstance(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment50000003000Repository.twoDatabaseInstanceInvolvedQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.twoDatabaseInstanceQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment50000003000> queryThreeDatabaseInstanceInvolved(String hkidPrefix) {
+    public List<Appointment50000003000> queryThreeDatabaseInstance(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment50000003000Repository.threeDatabaseInstanceInvolvedQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.threeDatabaseInstanceQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment50000003000> queryFourDatabaseInstanceInvolved(String hkidPrefix) {
+    public List<Appointment50000003000> queryFourDatabaseInstance(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment50000003000Repository.fourDatabaseInstanceInvolvedQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.fourDatabaseInstanceQuery(hkidPrefix, pageable);
     }
 
 }
