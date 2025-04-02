@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ImpactOfAggregatedDataService {
+public class ImpactOfDifferentResultSetService {
 
     @Autowired
     private Appointment5000000500Repository appointment5000000500Repository;
@@ -25,19 +25,19 @@ public class ImpactOfAggregatedDataService {
     @Autowired
     private Appointment500000010000Repository appointment500000010000Repository;
 
-    public List<Appointment5000000500> queryAppointment5000000500AndPatientPatient2000000500(String hkidPrefix) {
+    public List<Appointment5000000500> queryResultSet500And500(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment5000000500Repository.aggregatedDataQuery(hkidPrefix, pageable);
+        return appointment5000000500Repository.resultSetQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment50000003000> queryAppointment50000003000AndPatientPatient20000003000(String hkidPrefix) {
+    public List<Appointment50000003000> queryResultSet3000And3000(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment50000003000Repository.aggregatedDataQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.resultSetQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment500000010000> queryAppointment500000010000AndPatientPatient200000010000(String hkidPrefix) {
+    public List<Appointment500000010000> queryResultSet10000And10000(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment500000010000Repository.aggregatedDataQuery(hkidPrefix, pageable);
+        return appointment500000010000Repository.resultSetQuery(hkidPrefix, pageable);
     }
 
 }

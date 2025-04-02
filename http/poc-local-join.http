@@ -1,12 +1,22 @@
 ### ImpactOfDataVolumeService methods
 ### Get appointment100000 and patient10000
-GET http://localhost:8086/api/data-volume/appointment100000-and-patient10000?hkidPrefix=A%25
+GET http://localhost:8086/api/data-size/appointment100000-and-patient10000?hkidPrefix=A%25
 
 ### Get appointment5000000 and patient2000000
-GET http://localhost:8086/api/data-volume/appointment5000000-and-patient2000000?hkidPrefix=A%25
+GET http://localhost:8086/api/data-size/appointment5000000-and-patient2000000?hkidPrefix=A%25
 
 ### Get appointment50000000 and patient10000000
-GET http://localhost:8086/api/data-volume/appointment50000000-and-patient10000000?hkidPrefix=A%25
+GET http://localhost:8086/api/data-size/appointment50000000-and-patient10000000?hkidPrefix=A%25
+
+### ImpactOfResultSetService methods
+### Get result set appointment50000000500 and patient10000000500
+GET http://localhost:8086/api/result-set/appointment50000000500-and-patient10000000500?hkidPrefix=A%25
+
+### Get result set appointment500000003000 and patient100000003000
+GET http://localhost:8086/api/result-set/appointment500000003000-and-patient100000003000?hkidPrefix=A%25
+
+### Get result set appointment5000000010000 and patient1000000010000
+GET http://localhost:8086/api/result-set/appointment5000000010000-and-patient1000000010000?hkidPrefix=A%25
 
 ### ImpactOfResultSetSizeService methods
 ### Get result set size 50
@@ -18,7 +28,7 @@ GET http://localhost:8086/api/result-set-size/1000?hkidPrefix=A%25
 ### Get result set size 10000
 GET http://localhost:8086/api/result-set-size/10000?hkidPrefix=A%25
 
-### ImpactOfTypeOfJoinAndSubqueryService methods
+### ImpactOfDifferentJoinAndSubqueryService methods
 ### Get type of join
 GET http://localhost:8086/api/type-of-join?hkidPrefix=A%25
 
@@ -28,7 +38,7 @@ GET http://localhost:8086/api/type-of-left-join?hkidPrefix=A%25
 ### Get type of subquery
 GET http://localhost:8086/api/type-of-subquery?hkidPrefix=A%25
 
-### ImpactOfDatabaseInstanceInvolvedService methods
+### ImpactOfMultiDbInstancesService methods
 ### Get two database instance involved
 GET http://localhost:8086/api/database-instance-involved/two?hkidPrefix=A%25
 
@@ -37,14 +47,3 @@ GET http://localhost:8086/api/database-instance-involved/three?hkidPrefix=A%25
 
 ### Get four database instance involved
 GET http://localhost:8086/api/database-instance-involved/four?hkidPrefix=A%25
-
-### ImpactOfAggregatedDataService methods
-### Get appointment100000 and patient10000
-GET http://localhost:8086/api/aggregated-data/appointment50000000500-and-patient10000000500?hkidPrefix=A%25
-
-### Get appointment5000000 and patient2000000
-GET http://localhost:8086/api/aggregated-data/appointment500000003000-and-patient100000003000?hkidPrefix=A%25
-
-### Get appointment50000000 and patient10000000
-GET http://localhost:8086/api/aggregated-data/appointment5000000010000-and-patient1000000010000?hkidPrefix=A%25
-

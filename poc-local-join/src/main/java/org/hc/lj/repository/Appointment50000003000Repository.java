@@ -13,10 +13,10 @@ import java.util.List;
 public interface Appointment50000003000Repository extends JpaRepository<Appointment50000003000, Integer> {
 
     @Query("SELECT a FROM Appointment50000003000 a JOIN Patient20000003000 p on CAST(a.patientNo AS string) = p.patientKey WHERE p.hkid LIKE :hkidPrefix")
-    List<Appointment50000003000> dataVolumeQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
+    List<Appointment50000003000> dataSizeQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
 
     @Query("SELECT a FROM Appointment50000003000 a JOIN Patient20000003000 p on CAST(a.patientNo AS string) = p.patientKey WHERE p.hkid LIKE :hkidPrefix")
-    List<Appointment50000003000> resultSetSizeQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
+    List<Appointment50000003000> paginationQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
 
     @Query("SELECT a FROM Appointment50000003000 a JOIN Patient20000003000 p on CAST(a.patientNo AS string) = p.patientKey WHERE p.hkid LIKE :hkidPrefix")
     List<Appointment50000003000> typeOfJoinQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
@@ -52,5 +52,5 @@ public interface Appointment50000003000Repository extends JpaRepository<Appointm
     List<Appointment50000003000> fourDatabaseInstanceInvolvedQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
 
     @Query("SELECT a FROM Appointment50000003000 a JOIN Patient20000003000 p on CAST(a.patientNo AS string) = p.patientKey WHERE p.hkid LIKE :hkidPrefix")
-    List<Appointment50000003000> aggregatedDataQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
+    List<Appointment50000003000> resultSetQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
 }

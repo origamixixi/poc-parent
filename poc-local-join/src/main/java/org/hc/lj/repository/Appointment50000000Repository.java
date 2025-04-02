@@ -14,6 +14,6 @@ import java.util.List;
 public interface Appointment50000000Repository extends JpaRepository<Appointment50000000, Integer> {
 
     @Query("SELECT a FROM Appointment50000000 a JOIN Patient10000000 p on CAST(a.patientNo AS string) = p.patientKey WHERE p.hkid LIKE :hkidPrefix")
-    List<Appointment50000000> dataVolumeQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
+    List<Appointment50000000> dataSizeQuery(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
 
 }

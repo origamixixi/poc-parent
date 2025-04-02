@@ -15,89 +15,101 @@ import java.util.List;
 @RequestMapping("/api")
 public class CompositeController {
 
-    private final ImpactOfDatabaseInstanceInvolvedService databaseInstanceInvolvedService;
-    private final ImpactOfDataVolumeService dataVolumeService;
-    private final ImpactOfResultSetSizeService resultSetSizeService;
-    private final ImpactOfTypeOfJoinAndSubqueryService typeOfJoinAndSubqueryService;
-    private final ImpactOfAggregatedDataService aggregatedDataService;
+    private final ImpactOfMultiDbInstancesService multiDbInstancesService;
+    private final ImpactOfDifferentDataSizeService differentDataSizeService;
+    private final ImpactOfDifferentPaginationService differentPaginationService;
+    private final ImpactOfDifferentJoinAndSubqueryService differentJoinAndSubqueryService;
+    private final ImpactOfDifferentResultSetService differentResultSetService;
 
-    // ImpactOfDatabaseInstanceInvolvedService methods
-    @GetMapping("/database-instance-involved/two")
-    public List<Appointment50000003000> getTwoDatabaseInstanceInvolved(@RequestParam String hkidPrefix) {
-        return databaseInstanceInvolvedService.queryTwoDatabaseInstanceInvolved(hkidPrefix);
-    }
 
-    @GetMapping("/database-instance-involved/three")
-    public List<Appointment50000003000> getThreeDatabaseInstanceInvolved(@RequestParam String hkidPrefix) {
-        return databaseInstanceInvolvedService.queryThreeDatabaseInstanceInvolved(hkidPrefix);
-    }
-
-    @GetMapping("/database-instance-involved/four")
-    public List<Appointment50000003000> getFourDatabaseInstanceInvolved(@RequestParam String hkidPrefix) {
-        return databaseInstanceInvolvedService.queryFourDatabaseInstanceInvolved(hkidPrefix);
-    }
-
-    // ImpactOfDataVolumeService methods
-    @GetMapping("/data-volume/appointment100000-and-patient10000")
+    //---------------------------------------------------------------------
+    // ImpactOfDifferentDataSizeService methods
+    //---------------------------------------------------------------------
+    @GetMapping("/data-size/appointment100000-and-patient10000")
     public List<Appointment100000> getAppointment100000AndPatient10000(@RequestParam String hkidPrefix) {
-        return dataVolumeService.queryAppointment100000AndPatient10000(hkidPrefix);
+        return differentDataSizeService.queryAppointment100000AndPatient10000(hkidPrefix);
     }
 
-    @GetMapping("/data-volume/appointment5000000-and-patient2000000")
+    @GetMapping("/data-size/appointment5000000-and-patient2000000")
     public List<Appointment50000003000> getAppointment5000000AndPatient2000000(@RequestParam String hkidPrefix) {
-        return dataVolumeService.queryAppointment5000000AndPatientPatient2000000(hkidPrefix);
+        return differentDataSizeService.queryAppointment5000000AndPatientPatient2000000(hkidPrefix);
     }
 
-    @GetMapping("/data-volume/appointment50000000-and-patient10000000")
+    @GetMapping("/data-size/appointment50000000-and-patient10000000")
     public List<Appointment50000000> getAppointment50000000AndPatient10000000(@RequestParam String hkidPrefix) {
-        return dataVolumeService.queryAppointment50000000AndPatient10000000(hkidPrefix);
+        return differentDataSizeService.queryAppointment50000000AndPatient10000000(hkidPrefix);
     }
 
-    // ImpactOfResultSetSizeService methods
+    //---------------------------------------------------------------------
+    // ImpactOfDifferentResultSetService methods
+    //---------------------------------------------------------------------
+    @GetMapping("/result-set/appointment50000000500-and-patient10000000500")
+    public List<Appointment5000000500> getResultSetData500And500(@RequestParam String hkidPrefix) {
+        return differentResultSetService.queryResultSet500And500(hkidPrefix);
+    }
+
+    @GetMapping("/result-set/appointment500000003000-and-patient100000003000")
+    public List<Appointment50000003000> getResultSetData3000And3000(@RequestParam String hkidPrefix) {
+        return differentResultSetService.queryResultSet3000And3000(hkidPrefix);
+    }
+
+    @GetMapping("/result-set/appointment5000000010000-and-patient1000000010000")
+    public List<Appointment500000010000> getResultSetData10000And10000(@RequestParam String hkidPrefix) {
+        return differentResultSetService.queryResultSet10000And10000(hkidPrefix);
+    }
+
+    //---------------------------------------------------------------------
+    // ImpactOfDifferentPaginationService methods
+    //---------------------------------------------------------------------
     @GetMapping("/result-set-size/50")
     public List<Appointment50000003000> getResultSetSize50(@RequestParam String hkidPrefix) {
-        return resultSetSizeService.query50(hkidPrefix);
+        return differentPaginationService.query50(hkidPrefix);
     }
 
     @GetMapping("/result-set-size/1000")
     public List<Appointment50000003000> getResultSetSize1000(@RequestParam String hkidPrefix) {
-        return resultSetSizeService.query1000(hkidPrefix);
+        return differentPaginationService.query1000(hkidPrefix);
     }
 
     @GetMapping("/result-set-size/10000")
     public List<Appointment50000003000> getResultSetSize10000(@RequestParam String hkidPrefix) {
-        return resultSetSizeService.query10000(hkidPrefix);
+        return differentPaginationService.query10000(hkidPrefix);
     }
 
-    // ImpactOfTypeOfJoinAndSubqueryService methods
+    //---------------------------------------------------------------------
+    // ImpactOfDifferentJoinAndSubqueryService methods
+    //---------------------------------------------------------------------
     @GetMapping("/type-of-join")
     public List<Appointment50000003000> getTypeOfJoin(@RequestParam String hkidPrefix) {
-        return typeOfJoinAndSubqueryService.queryTypeOfJoin(hkidPrefix);
+        return differentJoinAndSubqueryService.queryTypeOfJoin(hkidPrefix);
     }
 
     @GetMapping("/type-of-left-join")
     public List<Appointment50000003000> getTypeOfLeftJoin(@RequestParam String hkidPrefix) {
-        return typeOfJoinAndSubqueryService.queryTypeOfLeftJoin(hkidPrefix);
+        return differentJoinAndSubqueryService.queryTypeOfLeftJoin(hkidPrefix);
     }
 
     @GetMapping("/type-of-subquery")
     public List<Appointment50000003000> getTypeOfSubquery(@RequestParam String hkidPrefix) {
-        return typeOfJoinAndSubqueryService.queryTypeOfSub(hkidPrefix);
+        return differentJoinAndSubqueryService.queryTypeOfSub(hkidPrefix);
     }
 
-    // ImpactOfAggregatedDataService methods
-    @GetMapping("/aggregated-data/appointment50000000500-and-patient10000000500")
-    public List<Appointment5000000500> getAggregatedData1(@RequestParam String hkidPrefix) {
-        return aggregatedDataService.queryAppointment5000000500AndPatientPatient2000000500(hkidPrefix);
+    //---------------------------------------------------------------------
+    // ImpactOfMultiDbInstancesService methods
+    //---------------------------------------------------------------------
+    @GetMapping("/database-instance-involved/two")
+    public List<Appointment50000003000> getTwoDatabaseInstanceInvolved(@RequestParam String hkidPrefix) {
+        return multiDbInstancesService.queryTwoDatabaseInstanceInvolved(hkidPrefix);
     }
 
-    @GetMapping("/aggregated-data/appointment500000003000-and-patient100000003000")
-    public List<Appointment50000003000> getAggregatedData2(@RequestParam String hkidPrefix) {
-        return aggregatedDataService.queryAppointment50000003000AndPatientPatient20000003000(hkidPrefix);
+    @GetMapping("/database-instance-involved/three")
+    public List<Appointment50000003000> getThreeDatabaseInstanceInvolved(@RequestParam String hkidPrefix) {
+        return multiDbInstancesService.queryThreeDatabaseInstanceInvolved(hkidPrefix);
     }
 
-    @GetMapping("/aggregated-data/appointment5000000010000-and-patient1000000010000")
-    public List<Appointment500000010000> getAggregatedData3(@RequestParam String hkidPrefix) {
-        return aggregatedDataService.queryAppointment500000010000AndPatientPatient200000010000(hkidPrefix);
+    @GetMapping("/database-instance-involved/four")
+    public List<Appointment50000003000> getFourDatabaseInstanceInvolved(@RequestParam String hkidPrefix) {
+        return multiDbInstancesService.queryFourDatabaseInstanceInvolved(hkidPrefix);
     }
+
 }

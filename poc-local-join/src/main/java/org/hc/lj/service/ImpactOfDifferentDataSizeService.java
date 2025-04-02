@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ImpactOfDataVolumeService {
+public class ImpactOfDifferentDataSizeService {
 
     @Autowired
     private Appointment100000Repository appointment100000Repository;
@@ -27,16 +27,16 @@ public class ImpactOfDataVolumeService {
 
     public List<Appointment100000> queryAppointment100000AndPatient10000(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment100000Repository.dataVolumeQuery(hkidPrefix, pageable);
+        return appointment100000Repository.dataSizeQuery(hkidPrefix, pageable);
     }
 
     public List<Appointment50000003000> queryAppointment5000000AndPatientPatient2000000(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment50000003000Repository.dataVolumeQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.dataSizeQuery(hkidPrefix, pageable);
     }
 
     public List<Appointment50000000> queryAppointment50000000AndPatient10000000(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment50000000Repository.dataVolumeQuery(hkidPrefix, pageable);
+        return appointment50000000Repository.dataSizeQuery(hkidPrefix, pageable);
     }
 }

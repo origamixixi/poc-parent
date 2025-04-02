@@ -1,4 +1,4 @@
-package org.hc.runner;
+package org.hc.admin.runner;
 
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.slf4j.Slf4j;

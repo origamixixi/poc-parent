@@ -10,24 +10,24 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class ImpactOfTypeOfJoinAndSubqueryServiceTest {
+public class ImpactOfDifferentJoinAndSubqueryServiceTest {
 
     @Autowired
-    private ImpactOfTypeOfJoinAndSubqueryService impactOfTypeOfJoinAndSubqueryService;
+    private ImpactOfDifferentJoinAndSubqueryService impactOfDifferentJoinAndSubqueryService;
 
     @Test
     public void queryTypeOfJoin() {
-        impactOfTypeOfJoinAndSubqueryService.queryTypeOfJoin("A%");
+        impactOfDifferentJoinAndSubqueryService.queryTypeOfJoin("A%");
     }
 
     @Test
     public void queryTypeOfLeftJoin() {
-        impactOfTypeOfJoinAndSubqueryService.queryTypeOfLeftJoin("A%");
+        impactOfDifferentJoinAndSubqueryService.queryTypeOfLeftJoin("A%");
     }
 
     @Test
     public void queryTypeOfSub() {
-        impactOfTypeOfJoinAndSubqueryService.queryTypeOfSub("A%");
+        impactOfDifferentJoinAndSubqueryService.queryTypeOfSub("A%");
     }
 
 }

@@ -10,23 +10,24 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ImpactOfTypeOfJoinAndSubqueryService {
+public class ImpactOfMultiDbInstancesService {
 
     @Autowired
     private Appointment50000003000Repository appointment50000003000Repository;
 
-    public List<Appointment50000003000> queryTypeOfJoin(String hkidPrefix) {
+    public List<Appointment50000003000> queryTwoDatabaseInstanceInvolved(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment50000003000Repository.typeOfJoinQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.twoDatabaseInstanceInvolvedQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment50000003000> queryTypeOfLeftJoin(String hkidPrefix) {
+    public List<Appointment50000003000> queryThreeDatabaseInstanceInvolved(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment50000003000Repository.typeOfLeftJoinQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.threeDatabaseInstanceInvolvedQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment50000003000> queryTypeOfSub(String hkidPrefix) {
+    public List<Appointment50000003000> queryFourDatabaseInstanceInvolved(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment50000003000Repository.typeOfSubQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.fourDatabaseInstanceInvolvedQuery(hkidPrefix, pageable);
     }
+
 }

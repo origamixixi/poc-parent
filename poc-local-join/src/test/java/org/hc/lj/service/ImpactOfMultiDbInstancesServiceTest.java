@@ -10,23 +10,23 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class ImpactOfDatabaseInstanceInvolvedServiceTest {
+public class ImpactOfMultiDbInstancesServiceTest {
 
     @Autowired
-    private ImpactOfDatabaseInstanceInvolvedService impactOfDatabaseInstanceInvolvedService;
+    private ImpactOfMultiDbInstancesService impactOfMultiDbInstancesService;
 
     @Test
     public void queryTwoDatabaseInstanceInvolved() {
-        impactOfDatabaseInstanceInvolvedService.queryTwoDatabaseInstanceInvolved("A%");
+        impactOfMultiDbInstancesService.queryTwoDatabaseInstanceInvolved("A%");
     }
 
     @Test
     public void queryThreeDatabaseInstanceInvolved() {
-        impactOfDatabaseInstanceInvolvedService.queryThreeDatabaseInstanceInvolved("A%");
+        impactOfMultiDbInstancesService.queryThreeDatabaseInstanceInvolved("A%");
     }
 
     @Test
     public void queryFourDatabaseInstanceInvolved() {
-        impactOfDatabaseInstanceInvolvedService.queryFourDatabaseInstanceInvolved("A%");
+        impactOfMultiDbInstancesService.queryFourDatabaseInstanceInvolved("A%");
     }
 }

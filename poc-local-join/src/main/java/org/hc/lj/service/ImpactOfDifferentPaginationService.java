@@ -10,23 +10,23 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ImpactOfResultSetSizeService {
+public class ImpactOfDifferentPaginationService {
 
     @Autowired
     private Appointment50000003000Repository appointment50000003000Repository;
 
     public List<Appointment50000003000> query50(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 50);
-        return appointment50000003000Repository.resultSetSizeQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.paginationQuery(hkidPrefix, pageable);
     }
 
     public List<Appointment50000003000> query1000(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment50000003000Repository.resultSetSizeQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.paginationQuery(hkidPrefix, pageable);
     }
 
     public List<Appointment50000003000> query10000(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 10000);
-        return appointment50000003000Repository.resultSetSizeQuery(hkidPrefix, pageable);
+        return appointment50000003000Repository.paginationQuery(hkidPrefix, pageable);
     }
 }
