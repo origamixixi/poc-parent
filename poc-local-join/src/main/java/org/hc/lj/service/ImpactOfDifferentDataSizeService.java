@@ -6,6 +6,7 @@ import org.hc.lj.entity.Appointment50000000;
 import org.hc.lj.repository.Appointment100000Repository;
 import org.hc.lj.repository.Appointment50000000Repository;
 import org.hc.lj.repository.Appointment50000003000Repository;
+import org.hc.lj.repository.Appointment5000000500Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -20,7 +21,7 @@ public class ImpactOfDifferentDataSizeService {
     private Appointment100000Repository appointment100000Repository;
 
     @Autowired
-    private Appointment50000003000Repository appointment50000003000Repository;
+    private Appointment5000000500Repository appointment5000000500Repository;
 
     @Autowired
     private Appointment50000000Repository appointment50000000Repository;
@@ -30,9 +31,9 @@ public class ImpactOfDifferentDataSizeService {
         return appointment100000Repository.dataSizeQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment50000003000> queryAppointment5000000AndPatientPatient2000000(String hkidPrefix) {
+    public List<Appointment5000000500Repository> queryAppointment5000000AndPatientPatient2000000(String hkidPrefix) {
         Pageable pageable = PageRequest.of(0, 1000);
-        return appointment50000003000Repository.dataSizeQuery(hkidPrefix, pageable);
+        return appointment5000000500Repository.dataSizeQuery(hkidPrefix, pageable);
     }
 
     public List<Appointment50000000> queryAppointment50000000AndPatient10000000(String hkidPrefix) {

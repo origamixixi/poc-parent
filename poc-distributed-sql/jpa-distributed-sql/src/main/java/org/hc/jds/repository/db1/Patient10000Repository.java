@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface Patient10000Repository extends JpaRepository<Patient10000, String> {
 
-    @Query("SELECT p FROM Patient10000 p where p.hkid LIKE :hkidPrefix")
+    @Query("SELECT p FROM Patient10000 p where p.patientKey LIKE :hkidPrefix order by p.patientKey")
     List<Patient10000> queryLikeHKIDPrefix(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
 
 }

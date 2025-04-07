@@ -1,7 +1,6 @@
 package org.hc.jds.entity;
 
 import lombok.Data;
-import org.hc.jds.entity.db1.CasePatientConditionId;
 
 import javax.persistence.Column;
 import javax.persistence.Id;

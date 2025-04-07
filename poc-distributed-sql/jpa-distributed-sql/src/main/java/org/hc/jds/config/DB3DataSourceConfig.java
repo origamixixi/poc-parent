@@ -41,7 +41,7 @@ public class DB3DataSourceConfig {
     }
 
     @Bean(name = "db3TransactionManager")
-    public PlatformTransactionManager primaryTransactionManager(
+    public PlatformTransactionManager db3TransactionManager(
             @Qualifier("db3EntityManagerFactory") LocalContainerEntityManagerFactoryBean entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory.getObject());
     }

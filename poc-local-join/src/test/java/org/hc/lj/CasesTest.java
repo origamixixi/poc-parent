@@ -3,9 +3,7 @@ package org.hc.lj;
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.hc.lj.entity.Cases;
-import org.hc.lj.entity.Cases200000;
 import org.hc.lj.entity.Cases2000000;
-import org.hc.lj.repository.Cases200000Repository;
 import org.hc.lj.repository.Cases2000000Repository;
 import org.hc.lj.repository.CasesTestRepository;
 import org.junit.Test;
@@ -32,20 +30,12 @@ public class CasesTest {
     private CasesTestRepository casesTestRepository;
 
     @Autowired
-    private Cases200000Repository cases200000Repository;
-
-    @Autowired
     private Cases2000000Repository cases2000000Repository;
 
     @Test
     public void findAll() {
         List<org.hc.lj.entity.CasesTest> casesTests = casesTestRepository.findAll();
         log.info("casesTest: {}", JSON.toJSONString(casesTests));
-    }
-
-    @Test
-    public void insertCases200000() {
-        insertCases(3_000, 2_00_000, Cases200000.class, cases200000Repository::saveAll);
     }
 
     @Test
@@ -108,7 +98,7 @@ public class CasesTest {
             // Insert batch
             if (casess.size() >= batchSize) {
                 // Shuffle the list to randomize the order within the batch
-                Collections.shuffle(casess);
+//                Collections.shuffle(casess);
 
                 // Save all cases in the current batch to the database
                 saveFunction.accept(casess);
@@ -121,7 +111,7 @@ public class CasesTest {
         // Insert remaining cases
         if (!casess.isEmpty()) {
             // Shuffle the list to randomize the order within the batch
-            Collections.shuffle(casess);
+//            Collections.shuffle(casess);
 
             // Save all cases in the current batch to the database
             saveFunction.accept(casess);

@@ -1,10 +1,10 @@
 package org.hc.ssjds.entity;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import lombok.Data;
-
 import java.sql.Timestamp;
 
 @Data

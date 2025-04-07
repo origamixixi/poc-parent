@@ -45,7 +45,7 @@ public class DB1DataSourceConfig {
 
     @Primary
     @Bean(name = "db1TransactionManager")
-    public PlatformTransactionManager primaryTransactionManager(
+    public PlatformTransactionManager db1TransactionManager(
             @Qualifier("db1EntityManagerFactory") LocalContainerEntityManagerFactoryBean entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory.getObject());
     }

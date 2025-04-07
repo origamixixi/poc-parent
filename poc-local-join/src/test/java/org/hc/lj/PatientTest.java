@@ -78,7 +78,7 @@ public class PatientTest {
      */
     @Test
     public void insertPatient10000000() {
-        insertPatients(10_000, 10_000_000, Patient10000000.class, patient10000000Repository::saveAll);
+        insertPatients(500, 10_000_000, Patient10000000.class, patient10000000Repository::saveAll);
     }
 
     private <T extends Patient> void insertPatients(int aggregatedSize, int totalPatients, Class<T> clazz, Consumer<Collection<T>> saveFunction) {
@@ -139,7 +139,7 @@ public class PatientTest {
             // Insert batch
             if (patients.size() >= batchSize) {
                 // Shuffle the list to randomize the order within the batch
-                Collections.shuffle(patients);
+//                Collections.shuffle(patients);
 
                 // Save all patients in the current batch to the database
                 saveFunction.accept(patients);
@@ -152,7 +152,7 @@ public class PatientTest {
         // Insert remaining patients
         if (!patients.isEmpty()) {
             // Shuffle the list to randomize the order within the batch
-            Collections.shuffle(patients);
+//            Collections.shuffle(patients);
 
             // Save all patients in the current batch to the database
             saveFunction.accept(patients);

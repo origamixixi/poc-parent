@@ -213,12 +213,12 @@ CREATE TABLE public.appointment_5000000_3000
     hospital               varchar(6)   NOT NULL,
     cancel_datetime        timestamp    NULL
 );
-CREATE INDEX "XAK1appointment_5000000" ON public.appointment_5000000 USING btree (sub_specialty, specialty, slot_datetime);
-CREATE UNIQUE INDEX "XAK2appointment_5000000" ON public.appointment_5000000 USING btree (appt_seq, hospital);
-CREATE INDEX "XIE1appointment_5000000" ON public.appointment_5000000 USING btree (case_no, slot_datetime);
-CREATE INDEX "XIE2appointment_5000000" ON public.appointment_5000000 USING btree (patient_no, slot_datetime);
-CREATE INDEX "XIE4appointment_5000000" ON public.appointment_5000000 USING btree (update_datetime);
-CREATE UNIQUE INDEX xpk_appointment_5000000 ON public.appointment_5000000 USING btree (slot_datetime, specialty, sub_specialty, appt_seq);
+CREATE INDEX "XAK1appointment_5000000_3000" ON public.appointment_5000000_3000 USING btree (sub_specialty, specialty, slot_datetime);
+CREATE UNIQUE INDEX "XAK2appointment_5000000_3000" ON public.appointment_5000000_3000 USING btree (appt_seq, hospital);
+CREATE INDEX "XIE1appointment_5000000_3000" ON public.appointment_5000000_3000 USING btree (case_no, slot_datetime);
+CREATE INDEX "XIE2appointment_5000000_3000" ON public.appointment_5000000_3000 USING btree (patient_no, slot_datetime);
+CREATE INDEX "XIE4appointment_5000000_3000" ON public.appointment_5000000_3000 USING btree (update_datetime);
+CREATE UNIQUE INDEX xpk_appointment_5000000_3000 ON public.appointment_5000000_3000 USING btree (slot_datetime, specialty, sub_specialty, appt_seq);
 
 -- public.appointment_5000000_10000 definition
 

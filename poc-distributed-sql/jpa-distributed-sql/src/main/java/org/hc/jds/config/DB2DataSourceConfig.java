@@ -23,13 +23,11 @@ import javax.sql.DataSource;
         transactionManagerRef = "db2TransactionManager"
 )
 public class DB2DataSourceConfig {
-
     @Bean(name = "db2DataSource")
     @ConfigurationProperties(prefix = "spring.datasource.db2")
     public DataSource db2DataSource() {
         return DataSourceBuilder.create().build();
     }
-
     @Bean(name = "db2EntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean db2EntityManagerFactory(
             EntityManagerFactoryBuilder builder,
@@ -40,9 +38,8 @@ public class DB2DataSourceConfig {
                 .persistenceUnit("db2")
                 .build();
     }
-
     @Bean(name = "db2TransactionManager")
-    public PlatformTransactionManager primaryTransactionManager(
+    public PlatformTransactionManager db2TransactionManager(
             @Qualifier("db2EntityManagerFactory") LocalContainerEntityManagerFactoryBean entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory.getObject());
     }

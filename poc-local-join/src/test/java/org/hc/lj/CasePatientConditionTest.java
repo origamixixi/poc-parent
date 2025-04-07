@@ -99,7 +99,7 @@ public class CasePatientConditionTest {
             // Insert batch
             if (casePatientConditions.size() >= batchSize) {
                 // Shuffle the list to randomize the order within the batch
-                Collections.shuffle(casePatientConditions);
+//                Collections.shuffle(casePatientConditions);
 
                 // Save all records in the current batch to the database
                 saveFunction.accept(casePatientConditions);
@@ -112,7 +112,7 @@ public class CasePatientConditionTest {
         // Insert remaining records
         if (!casePatientConditions.isEmpty()) {
             // Shuffle the list to randomize the order within the batch
-            Collections.shuffle(casePatientConditions);
+//            Collections.shuffle(casePatientConditions);
 
             // Save all records in the current batch to the database
             saveFunction.accept(casePatientConditions);

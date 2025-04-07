@@ -23,8 +23,8 @@ public class PGTest {
                 select *
                 from appointment_test a
                 inner join patient_test p on a.patient_no::varchar = p.patient_key
-                inner join appointment_payment_entries_test e on a.appt_seq = e.appt_seq
-                inner join appointment_receipts_test r on a.appt_seq = r.appt_seq
+                inner join cases_test e on a.patient_no = e.patient_no
+                inner join case_patient_condition_test r on a.patient_no = r.patient_no
                 """;
         log.info("result: {}", JSON.toJSONString(jdbcTemplate.queryForList(sql)));
     }

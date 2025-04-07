@@ -2,6 +2,7 @@ package org.hc.lj.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.hc.lj.entity.*;
+import org.hc.lj.repository.Appointment5000000500Repository;
 import org.hc.lj.service.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,7 +32,7 @@ public class CompositeController {
     }
 
     @GetMapping("/data-size/appointment5000000-and-patient2000000")
-    public List<Appointment50000003000> getAppointment5000000AndPatient2000000(@RequestParam String hkidPrefix) {
+    public List<Appointment5000000500Repository> getAppointment5000000AndPatient2000000(@RequestParam String hkidPrefix) {
         return differentDataSizeService.queryAppointment5000000AndPatientPatient2000000(hkidPrefix);
     }
 

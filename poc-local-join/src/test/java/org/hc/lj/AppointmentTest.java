@@ -49,6 +49,11 @@ public class AppointmentTest {
     }
 
     @Test
+    public void insertAppointmentTest() {
+        insertAppointments(500, 10_000, org.hc.lj.entity.AppointmentTest.class, appointmentTestRepository::saveAll);
+    }
+
+    @Test
     public void insertAppointment100000() {
         insertAppointments(500, 100_000, Appointment100000.class, appointment100000Repository::saveAll);
     }
@@ -68,7 +73,7 @@ public class AppointmentTest {
 
     @Test
     public void insertAppointment50000000() {
-        insertAppointments(10_000, 50_000_000, Appointment50000000.class, appointment50000000Repository::saveAll);
+        insertAppointments(500, 50_000_000, Appointment50000000.class, appointment50000000Repository::saveAll);
     }
 
     private <T extends Appointment> void insertAppointments(int aggregatedSize, int totalAppointments, Class<T> clazz, Consumer<Collection<T>> saveFunction) {
@@ -126,7 +131,7 @@ public class AppointmentTest {
             // Insert batch
             if (appointments.size() >= batchSize) {
                 // Shuffle the list to randomize the order within the batch
-                Collections.shuffle(appointments);
+//                Collections.shuffle(appointments);
 
                 // Save all appointments in the current batch to the database
                 saveFunction.accept(appointments);
@@ -139,7 +144,7 @@ public class AppointmentTest {
         // Insert remaining appointments
         if (!appointments.isEmpty()) {
             // Shuffle the list to randomize the order within the batch
-            Collections.shuffle(appointments);
+//            Collections.shuffle(appointments);
 
             // Save all appointments in the current batch to the database
             saveFunction.accept(appointments);

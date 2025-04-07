@@ -252,11 +252,11 @@ CREATE TABLE public.patient_2000000_3000
     CONSTRAINT patient_sex_ct CHECK (((sex)::text = ANY
                                       ((ARRAY ['F'::character varying, 'M'::character varying, 'U'::character varying])::text[])))
 );
-CREATE UNIQUE INDEX "XAK1patient_2000000" ON public.patient_2000000 USING btree (hkid);
-CREATE INDEX "XIE1patient_2000000" ON public.patient_2000000 USING btree (patient_name, sex, dob);
-CREATE INDEX "XIE2patient_2000000" ON public.patient_2000000 USING btree (chi_name, sex, dob);
-CREATE INDEX "XIE3patient_2000000" ON public.patient_2000000 USING btree (other_doc_no);
-CREATE INDEX "XIE4patient_2000000" ON public.patient_2000000 USING btree (patient_key);
+CREATE UNIQUE INDEX "XAK1patient_2000000_3000" ON public.patient_2000000_3000 USING btree (hkid);
+CREATE INDEX "XIE1patient_2000000_3000" ON public.patient_2000000_3000 USING btree (patient_name, sex, dob);
+CREATE INDEX "XIE2patient_2000000_3000" ON public.patient_2000000_3000 USING btree (chi_name, sex, dob);
+CREATE INDEX "XIE3patient_2000000_3000" ON public.patient_2000000_3000 USING btree (other_doc_no);
+CREATE INDEX "XIE4patient_2000000_3000" ON public.patient_2000000_3000 USING btree (patient_key);
 
 -- public.patient_2000000_10000 definition
 
