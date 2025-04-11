@@ -17,4 +17,7 @@ public interface Appointment50000003000Repository extends JpaRepository<Appointm
     @Query("SELECT a FROM Appointment50000003000 a where CAST(a.patientNo AS string) LIKE :hkidPrefix order by a.patientNo")
     List<Appointment50000003000> queryLikeHKIDPrefix(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
 
+    @Query("SELECT a FROM Appointment50000003000 a where a.patientNo in :hkids order by a.patientNo")
+    List<Appointment50000003000> queryInHKID(@Param("hkids") List<Integer> hkids, Pageable pageable);
+
 }

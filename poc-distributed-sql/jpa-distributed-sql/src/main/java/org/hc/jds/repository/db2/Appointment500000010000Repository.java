@@ -16,4 +16,5 @@ public interface Appointment500000010000Repository extends JpaRepository<Appoint
     @Query("SELECT a FROM Appointment500000010000 a where CAST(a.patientNo AS string) LIKE :hkidPrefix order by a.patientNo")
     List<Appointment500000010000> queryLikeHKIDPrefix(@Param("hkidPrefix") String hkidPrefix, Pageable pageable);
 
+
 }

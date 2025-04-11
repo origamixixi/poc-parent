@@ -47,9 +47,9 @@ public class ImpactOfDifferentDataSizeService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
         return cf.thenApply(v -> {
-            List<Patient10000> result1 = cf1.join();
-            List<Appointment100000> result2 = cf2.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient10000::getPatientKey).map(Integer::parseInt).toList();
+            List<Appointment100000> result =  cf2.join().stream().filter(appointment -> patientNos.contains(appointment.getPatientNo())).toList();
+            return result;
         }).join();
     }
 
@@ -64,9 +64,9 @@ public class ImpactOfDifferentDataSizeService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
         return cf.thenApply(v -> {
-            List<Patient2000000500> result1 = cf1.join();
-            List<Appointment5000000500> result2 = cf2.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient2000000500::getPatientKey).map(Integer::parseInt).toList();
+            List<Appointment5000000500> result =  cf2.join().stream().filter(appointment -> patientNos.contains(appointment.getPatientNo())).toList();
+            return result;
         }).join();
     }
 
@@ -81,9 +81,9 @@ public class ImpactOfDifferentDataSizeService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
         return cf.thenApply(v -> {
-            List<Patient10000000> result1 = cf1.join();
-            List<Appointment50000000> result2 = cf2.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient10000000::getPatientKey).map(Integer::parseInt).toList();
+            List<Appointment50000000> result =  cf2.join().stream().filter(appointment -> patientNos.contains(appointment.getPatientNo())).toList();
+            return result;
         }).join();
     }
 }

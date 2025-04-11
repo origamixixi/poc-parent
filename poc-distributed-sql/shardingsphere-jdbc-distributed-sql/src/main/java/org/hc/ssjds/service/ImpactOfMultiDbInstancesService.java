@@ -19,13 +19,10 @@ public class ImpactOfMultiDbInstancesService {
 
     @Autowired
     private Patient20000003000Repository patient20000003000Repository;
-
     @Autowired
     private Appointment50000003000Repository appointment50000003000Repository;
-
     @Autowired
     private Cases2000000Repository cases2000000Repository;
-
     @Autowired
     private CasePatientCondition2000000Repository casePatientCondition2000000Repository;
 
@@ -40,9 +37,9 @@ public class ImpactOfMultiDbInstancesService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
         return cf.thenApply(v -> {
-            List<Patient20000003000> result1 = cf1.join();
-            List<Appointment50000003000> result2 = cf2.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient20000003000::getPatientKey).map(Integer::parseInt).toList();
+            List<Appointment50000003000> result =  cf2.join().stream().filter(appointment -> patientNos.contains(appointment.getPatientNo())).toList();
+            return result;
         }).join();
     }
 
@@ -61,10 +58,13 @@ public class ImpactOfMultiDbInstancesService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2, cf3);
         return cf.thenApply(v -> {
-            List<Patient20000003000> result1 = cf1.join();
-            List<Appointment50000003000> result2 = cf2.join();
-            List<Cases2000000> result3 = cf3.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient20000003000::getPatientKey).map(Integer::parseInt).toList();
+            List<Integer> patientNos3 = cf3.join().stream().map(Cases2000000::getPatientNo).toList();
+            List<Appointment50000003000> result =  cf2.join().stream()
+                    .filter(appointment -> patientNos.contains(appointment.getPatientNo()))
+                    .filter(appointment -> patientNos3.contains(appointment.getPatientNo()))
+                    .toList();
+            return result;
         }).join();
     }
 
@@ -88,11 +88,15 @@ public class ImpactOfMultiDbInstancesService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2, cf3, cf4);
         return cf.thenApply(v -> {
-            List<Patient20000003000> result1 = cf1.join();
-            List<Appointment50000003000> result2 = cf2.join();
-            List<Cases2000000> result3 = cf3.join();
-            List<CasePatientCondition2000000> result4 = cf4.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient20000003000::getPatientKey).map(Integer::parseInt).toList();
+            List<Integer> patientNos3 = cf3.join().stream().map(Cases2000000::getPatientNo).toList();
+            List<Integer> patientNos4 = cf4.join().stream().map(CasePatientCondition2000000::getPatientNo).toList();
+            List<Appointment50000003000> result =  cf2.join().stream()
+                    .filter(appointment -> patientNos.contains(appointment.getPatientNo()))
+                    .filter(appointment -> patientNos3.contains(appointment.getPatientNo()))
+                    .filter(appointment -> patientNos4.contains(appointment.getPatientNo()))
+                    .toList();
+            return result;
         }).join();
     }
 

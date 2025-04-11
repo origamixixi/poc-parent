@@ -43,9 +43,9 @@ public class ImpactOfDifferentResultSetService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
         return cf.thenApply(v -> {
-            List<Patient2000000500> result1 = cf1.join();
-            List<Appointment5000000500> result2 = cf2.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient2000000500::getPatientKey).map(Integer::parseInt).toList();
+            List<Appointment5000000500> result =  cf2.join().stream().filter(appointment -> patientNos.contains(appointment.getPatientNo())).toList();
+            return result;
         }).join();
     }
 
@@ -60,9 +60,9 @@ public class ImpactOfDifferentResultSetService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
         return cf.thenApply(v -> {
-            List<Patient20000003000> result1 = cf1.join();
-            List<Appointment50000003000> result2 = cf2.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient20000003000::getPatientKey).map(Integer::parseInt).toList();
+            List<Appointment50000003000> result =  cf2.join().stream().filter(appointment -> patientNos.contains(appointment.getPatientNo())).toList();
+            return result;
         }).join();
     }
 
@@ -77,9 +77,9 @@ public class ImpactOfDifferentResultSetService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
         return cf.thenApply(v -> {
-            List<Patient200000010000> result1 = cf1.join();
-            List<Appointment500000010000> result2 = cf2.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient200000010000::getPatientKey).map(Integer::parseInt).toList();
+            List<Appointment500000010000> result =  cf2.join().stream().filter(appointment -> patientNos.contains(appointment.getPatientNo())).toList();
+            return result;
         }).join();
     }
 

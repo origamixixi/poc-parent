@@ -19,7 +19,7 @@ public class GlobalThreadPool {
         if (null != executor) {
             executor.shutdownNow();
         }
-        executor = new ThreadPoolExecutor(corePoolSize * 2, corePoolSize * 4,
+        executor = new ThreadPoolExecutor(corePoolSize * 2, corePoolSize * 5,
                 10L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(
                 Integer.MAX_VALUE),
                 new ThreadPoolExecutor.CallerRunsPolicy());

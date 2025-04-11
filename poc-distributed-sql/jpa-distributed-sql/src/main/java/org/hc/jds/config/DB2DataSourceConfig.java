@@ -28,6 +28,7 @@ public class DB2DataSourceConfig {
     public DataSource db2DataSource() {
         return DataSourceBuilder.create().build();
     }
+
     @Bean(name = "db2EntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean db2EntityManagerFactory(
             EntityManagerFactoryBuilder builder,

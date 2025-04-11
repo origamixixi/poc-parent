@@ -18,7 +18,6 @@ public class ImpactOfDifferentPaginationService {
 
     @Autowired
     private Patient20000003000Repository patient20000003000Repository;
-
     @Autowired
     private Appointment50000003000Repository appointment50000003000Repository;
 
@@ -33,9 +32,9 @@ public class ImpactOfDifferentPaginationService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
         return cf.thenApply(v -> {
-            List<Patient20000003000> result1 = cf1.join();
-            List<Appointment50000003000> result2 = cf2.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient20000003000::getPatientKey).map(Integer::parseInt).toList();
+            List<Appointment50000003000> result =  cf2.join().stream().filter(appointment -> patientNos.contains(appointment.getPatientNo())).toList();
+            return result;
         }).join();
     }
 
@@ -50,9 +49,9 @@ public class ImpactOfDifferentPaginationService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
         return cf.thenApply(v -> {
-            List<Patient20000003000> result1 = cf1.join();
-            List<Appointment50000003000> result2 = cf2.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient20000003000::getPatientKey).map(Integer::parseInt).toList();
+            List<Appointment50000003000> result =  cf2.join().stream().filter(appointment -> patientNos.contains(appointment.getPatientNo())).toList();
+            return result;
         }).join();
     }
 
@@ -67,9 +66,9 @@ public class ImpactOfDifferentPaginationService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
         return cf.thenApply(v -> {
-            List<Patient20000003000> result1 = cf1.join();
-            List<Appointment50000003000> result2 = cf2.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient20000003000::getPatientKey).map(Integer::parseInt).toList();
+            List<Appointment50000003000> result =  cf2.join().stream().filter(appointment -> patientNos.contains(appointment.getPatientNo())).toList();
+            return result;
         }).join();
     }
 }

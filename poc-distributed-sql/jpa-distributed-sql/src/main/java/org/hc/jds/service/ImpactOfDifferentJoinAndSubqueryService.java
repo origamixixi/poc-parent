@@ -18,7 +18,6 @@ public class ImpactOfDifferentJoinAndSubqueryService {
 
     @Autowired
     private Patient20000003000Repository patient20000003000Repository;
-
     @Autowired
     private Appointment50000003000Repository appointment50000003000Repository;
 
@@ -33,9 +32,9 @@ public class ImpactOfDifferentJoinAndSubqueryService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
         return cf.thenApply(v -> {
-            List<Patient20000003000> result1 = cf1.join();
-            List<Appointment50000003000> result2 = cf2.join();
-            return result2;
+            List<Integer> patientNos = cf1.join().stream().map(Patient20000003000::getPatientKey).map(Integer::parseInt).toList();
+            List<Appointment50000003000> result =  cf2.join().stream().filter(appointment -> patientNos.contains(appointment.getPatientNo())).toList();
+            return result;
         }).join();
     }
 
@@ -50,26 +49,19 @@ public class ImpactOfDifferentJoinAndSubqueryService {
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
         return cf.thenApply(v -> {
-            List<Patient20000003000> result1 = cf1.join();
-            List<Appointment50000003000> result2 = cf2.join();
-            return result2;
+            List<Patient20000003000> join = cf1.join();
+            List<Appointment50000003000> result =  cf2.join();
+            return result;
         }).join();
     }
 
     public List<Appointment50000003000> queryTypeOfSub(String hkidPrefix) {
-        CompletableFuture<List<Patient20000003000>> cf1 = CompletableFuture.supplyAsync(() -> {
+        return CompletableFuture.supplyAsync(() -> {
+            return patient20000003000Repository.queryLikeHKIDPrefix(hkidPrefix, null);
+        }, GlobalThreadPool.getExecutor()).thenApply(v -> {
+            List<Integer> patientNos = v.stream().map(Patient20000003000::getPatientKey).map(Integer::parseInt).toList();
             Pageable pageable = PageRequest.of(0, 1000);
-            return patient20000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
-        }, GlobalThreadPool.getExecutor());
-        CompletableFuture<List<Appointment50000003000>> cf2 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 1000);
-            return appointment50000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
-        }, GlobalThreadPool.getExecutor());
-        CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
-        return cf.thenApply(v -> {
-            List<Patient20000003000> result1 = cf1.join();
-            List<Appointment50000003000> result2 = cf2.join();
-            return result2;
+            return appointment50000003000Repository.queryInHKID(patientNos, pageable);
         }).join();
     }
 }

@@ -38,6 +38,7 @@ public class DB4DataSourceConfig {
                 .persistenceUnit("db4")
                 .build();
     }
+
     @Bean(name = "db4TransactionManager")
     public PlatformTransactionManager db4TransactionManager(
             @Qualifier("db4EntityManagerFactory") LocalContainerEntityManagerFactoryBean entityManagerFactory) {
