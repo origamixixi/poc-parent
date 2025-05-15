@@ -89,7 +89,7 @@ public class PatientTest {
      */
     @Test
     public void insertPatient10000000() {
-        insertPatients(3, 10, Patient10000000.class, patient10000000Repository::saveAll);
+        insertPatients(500, 10_000_000, Patient10000000.class, patient10000000Repository::saveAll);
     }
 
     private <T extends Patient> void insertPatients(int aggregatedSize, int totalPatients, Class<T> clazz, Consumer<Collection<T>> saveFunction) {
