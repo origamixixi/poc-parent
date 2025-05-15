@@ -26,13 +26,13 @@ public class ImpactOfMultiDbInstancesService {
     @Autowired
     private CasePatientCondition2000000Repository casePatientCondition2000000Repository;
 
-    public List<Appointment50000003000> queryTwoDatabaseInstance(String hkidPrefix) {
+    public List<Appointment50000003000> queryTwoDatabaseInstance(String hkidPrefix, Integer pageNo, Integer pageSize) {
         CompletableFuture<List<Patient20000003000>> cf1 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 1000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return patient20000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<List<Appointment50000003000>> cf2 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 1000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return appointment50000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
@@ -43,17 +43,17 @@ public class ImpactOfMultiDbInstancesService {
         }).join();
     }
 
-    public List<Appointment50000003000> queryThreeDatabaseInstance(String hkidPrefix) {
+    public List<Appointment50000003000> queryThreeDatabaseInstance(String hkidPrefix, Integer pageNo, Integer pageSize) {
         CompletableFuture<List<Patient20000003000>> cf1 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 1000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return patient20000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<List<Appointment50000003000>> cf2 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 1000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return appointment50000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<List<Cases2000000>> cf3 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 1000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return cases2000000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2, cf3);
@@ -68,22 +68,22 @@ public class ImpactOfMultiDbInstancesService {
         }).join();
     }
 
-    public List<Appointment50000003000> queryFourDatabaseInstance(String hkidPrefix) {
+    public List<Appointment50000003000> queryFourDatabaseInstance(String hkidPrefix, Integer pageNo, Integer pageSize) {
         CompletableFuture<List<Patient20000003000>> cf1 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 1000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return patient20000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<List<Appointment50000003000>> cf2 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 1000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return appointment50000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<List<Cases2000000>> cf3 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 1000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return cases2000000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture.allOf(cf1, cf2, cf3).join();
         CompletableFuture<List<CasePatientCondition2000000>> cf4 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 1000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return casePatientCondition2000000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2, cf3, cf4);

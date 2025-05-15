@@ -15,18 +15,18 @@ public class ImpactOfDifferentPaginationService {
     @Autowired
     private Appointment50000003000Repository appointment50000003000Repository;
 
-    public List<Appointment50000003000> queryPagination50(String hkidPrefix) {
-        Pageable pageable = PageRequest.of(0, 50);
+    public List<Appointment50000003000> queryPagination50(String hkidPrefix, Integer pageNo, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
         return appointment50000003000Repository.paginationQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment50000003000> queryPagination1000(String hkidPrefix) {
-        Pageable pageable = PageRequest.of(0, 1000);
+    public List<Appointment50000003000> queryPagination1000(String hkidPrefix, Integer pageNo, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
         return appointment50000003000Repository.paginationQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment50000003000> queryPagination10000(String hkidPrefix) {
-        Pageable pageable = PageRequest.of(0, 10000);
+    public List<Appointment50000003000> queryPagination10000(String hkidPrefix, Integer pageNo, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
         return appointment50000003000Repository.paginationQuery(hkidPrefix, pageable);
     }
 }

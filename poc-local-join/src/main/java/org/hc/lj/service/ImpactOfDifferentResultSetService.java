@@ -25,18 +25,18 @@ public class ImpactOfDifferentResultSetService {
     @Autowired
     private Appointment500000010000Repository appointment500000010000Repository;
 
-    public List<Appointment5000000500> queryResultSet500And500(String hkidPrefix) {
-        Pageable pageable = PageRequest.of(0, 1000);
+    public List<Appointment5000000500> queryResultSet500And500(String hkidPrefix, Integer pageNo, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
         return appointment5000000500Repository.resultSetQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment50000003000> queryResultSet3000And3000(String hkidPrefix) {
-        Pageable pageable = PageRequest.of(0, 1000);
+    public List<Appointment50000003000> queryResultSet3000And3000(String hkidPrefix, Integer pageNo, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
         return appointment50000003000Repository.resultSetQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment500000010000> queryResultSet10000And10000(String hkidPrefix) {
-        Pageable pageable = PageRequest.of(0, 1000);
+    public List<Appointment500000010000> queryResultSet10000And10000(String hkidPrefix, Integer pageNo, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
         return appointment500000010000Repository.resultSetQuery(hkidPrefix, pageable);
     }
 

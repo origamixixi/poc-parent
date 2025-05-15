@@ -21,13 +21,13 @@ public class ImpactOfDifferentPaginationService {
     @Autowired
     private Appointment50000003000Repository appointment50000003000Repository;
 
-    public List<Appointment50000003000> queryPagination50(String hkidPrefix) {
+    public List<Appointment50000003000> queryPagination50(String hkidPrefix, Integer pageNo, Integer pageSize) {
         CompletableFuture<List<Patient20000003000>> cf1 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 50);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return patient20000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<List<Appointment50000003000>> cf2 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 50);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return appointment50000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
@@ -38,13 +38,13 @@ public class ImpactOfDifferentPaginationService {
         }).join();
     }
 
-    public List<Appointment50000003000> queryPagination1000(String hkidPrefix) {
+    public List<Appointment50000003000> queryPagination1000(String hkidPrefix, Integer pageNo, Integer pageSize) {
         CompletableFuture<List<Patient20000003000>> cf1 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 1000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return patient20000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<List<Appointment50000003000>> cf2 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 1000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return appointment50000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);
@@ -55,13 +55,13 @@ public class ImpactOfDifferentPaginationService {
         }).join();
     }
 
-    public List<Appointment50000003000> queryPagination10000(String hkidPrefix) {
+    public List<Appointment50000003000> queryPagination10000(String hkidPrefix, Integer pageNo, Integer pageSize) {
         CompletableFuture<List<Patient20000003000>> cf1 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 10000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return patient20000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<List<Appointment50000003000>> cf2 = CompletableFuture.supplyAsync(() -> {
-            Pageable pageable = PageRequest.of(0, 10000);
+            Pageable pageable = PageRequest.of(pageNo, pageSize);
             return appointment50000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
         }, GlobalThreadPool.getExecutor());
         CompletableFuture<Void> cf = CompletableFuture.allOf(cf1, cf2);

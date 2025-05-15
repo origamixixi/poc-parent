@@ -22,7 +22,7 @@ public class ImpactOfDifferentPaginationService {
     @Autowired
     private Appointment50000003000Repository appointment50000003000Repository;
 
-    public List<Appointment50000003000> queryPagination50(String hkidPrefix) {
+    public List<Appointment50000003000> queryPagination50(String hkidPrefix, Integer pageNo, Integer pageSize) {
         CompletableFuture<List<Patient20000003000>> cf1 = CompletableFuture.supplyAsync(() -> {
             Pageable pageable = PageRequest.of(0, 50);
             return patient20000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
@@ -39,7 +39,7 @@ public class ImpactOfDifferentPaginationService {
         }).join();
     }
 
-    public List<Appointment50000003000> queryPagination1000(String hkidPrefix) {
+    public List<Appointment50000003000> queryPagination1000(String hkidPrefix, Integer pageNo, Integer pageSize) {
         CompletableFuture<List<Patient20000003000>> cf1 = CompletableFuture.supplyAsync(() -> {
             Pageable pageable = PageRequest.of(0, 1000);
             return patient20000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);
@@ -56,7 +56,7 @@ public class ImpactOfDifferentPaginationService {
         }).join();
     }
 
-    public List<Appointment50000003000> queryPagination10000(String hkidPrefix) {
+    public List<Appointment50000003000> queryPagination10000(String hkidPrefix, Integer pageNo, Integer pageSize) {
         CompletableFuture<List<Patient20000003000>> cf1 = CompletableFuture.supplyAsync(() -> {
             Pageable pageable = PageRequest.of(0, 10000);
             return patient20000003000Repository.queryLikeHKIDPrefix(hkidPrefix, pageable);

@@ -8,7 +8,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.Table;
@@ -45,8 +47,17 @@ public class PatientTest {
 
     @Test
     public void findAll() {
-        List<org.hc.lj.entity.PatientTest> patientTests = patientTestRepository.findAll();
-        log.info("patientTest: {}", JSON.toJSONString(patientTests));
+//        RowMapper<Patient2000000500> rowMapper = new BeanPropertyRowMapper<>(Patient2000000500.class);
+//        List<Patient2000000500> patient2000000500s = jdbcTemplate.query("SELECT * FROM patient_2000000_500 p WHERE p.patient_key LIKE '1%' ORDER BY p.patient_key LIMIT 200", rowMapper);
+//        List<org.hc.lj.entity.PatientTest> patientTests = patientTestRepository.findAll();
+        RowMapper<Appointment5000000500> rowMapper = new BeanPropertyRowMapper<>(Appointment5000000500.class);
+        List<Appointment5000000500> query = jdbcTemplate.query("SELECT * FROM appointment_5000000_500 a where a.patient_no::varchar LIKE '1%' order by a.patient_no limit 200", rowMapper);
+        log.info("patientTest: {}", JSON.toJSONString(query));
+    }
+
+    @Test
+    public void insertPatientTest() {
+        insertPatients(100, 10_00, org.hc.lj.entity.PatientTest.class, patientTestRepository::saveAll);
     }
 
     /**
@@ -78,7 +89,7 @@ public class PatientTest {
      */
     @Test
     public void insertPatient10000000() {
-        insertPatients(500, 10_000_000, Patient10000000.class, patient10000000Repository::saveAll);
+        insertPatients(3, 10, Patient10000000.class, patient10000000Repository::saveAll);
     }
 
     private <T extends Patient> void insertPatients(int aggregatedSize, int totalPatients, Class<T> clazz, Consumer<Collection<T>> saveFunction) {

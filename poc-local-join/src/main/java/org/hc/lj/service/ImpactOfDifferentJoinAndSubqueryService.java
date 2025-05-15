@@ -15,18 +15,18 @@ public class ImpactOfDifferentJoinAndSubqueryService {
     @Autowired
     private Appointment50000003000Repository appointment50000003000Repository;
 
-    public List<Appointment50000003000> queryTypeOfJoin(String hkidPrefix) {
-        Pageable pageable = PageRequest.of(0, 1000);
+    public List<Appointment50000003000> queryTypeOfJoin(String hkidPrefix, Integer pageNo, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
         return appointment50000003000Repository.typeOfJoinQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment50000003000> queryTypeOfLeftJoin(String hkidPrefix) {
-        Pageable pageable = PageRequest.of(0, 1000);
+    public List<Appointment50000003000> queryTypeOfLeftJoin(String hkidPrefix, Integer pageNo, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
         return appointment50000003000Repository.typeOfLeftJoinQuery(hkidPrefix, pageable);
     }
 
-    public List<Appointment50000003000> queryTypeOfSub(String hkidPrefix) {
-        Pageable pageable = PageRequest.of(0, 1000);
+    public List<Appointment50000003000> queryTypeOfSub(String hkidPrefix, Integer pageNo, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
         return appointment50000003000Repository.typeOfSubQuery(hkidPrefix, pageable);
     }
 }
